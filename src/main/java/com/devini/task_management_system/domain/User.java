@@ -1,5 +1,6 @@
 package com.devini.task_management_system.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,6 +25,7 @@ public class User implements UserDetails {
     private String id;
 
     private String username;
+    @JsonIgnore
     private String password;
 
     @Override

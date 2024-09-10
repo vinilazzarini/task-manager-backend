@@ -19,4 +19,9 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         RestErrorMessage restErrorMessage = new RestErrorMessage(HttpStatus.NOT_FOUND, exception.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(restErrorMessage);
     }
+    @ExceptionHandler(NotFoundException.class)
+    private ResponseEntity<RestErrorMessage> userNotFound(NotFoundException exception){
+        RestErrorMessage restErrorMessage = new RestErrorMessage(HttpStatus.NOT_FOUND, exception.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(restErrorMessage);
+    }
 }
